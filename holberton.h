@@ -1,6 +1,44 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
-int _printf(const char *format, ...);
-char *_itoa(int i, char *strout, int base);
+#ifndef PRINT_F
+#define PRINT_F
 
-#endif /* HOLBERTON_H */
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+/**
+ * struct convert - defines a structure of functions and sysmbols
+ * @symbol: the operator
+ * @func: functions
+ */
+struct convert
+{
+	char *symbol;
+	int (*func)(va_list);
+};
+typedef struct convert conver_t;
+
+int _printf(const char *format, ...);
+int parser(const char *format, conver_t f_list[], va_list args);
+int _write_char(char);
+int print_char(va_list);
+int print_integer(va_list);
+int print_string(va_list);
+int print_percent(va_list);
+int print_number(va_list);
+int print_reversed(va_list);
+int print_binary(va_list);
+int print_reversed(va_list, arg);
+int rot13(va_list);
+int unsigned_int(va_list);
+int print_octal(va_list, list);
+int print_hex(va_list, list);
+int print_heX(va_list, list);
+
+/*helper functions*/
+unsigned int base_len(unsigned int, int);
+char *strrev(char *);
+void write_base(char *str);
+char *_memcpy(char *dest, char *src, unsigned int n);
+int print_unsigned_number(unsigned int);
+
+#endif
