@@ -1,0 +1,29 @@
+.TH man 3 "27 July 2021" "1.0" "_printf man page"
+.SH NAME
+.B _printf
+.SH SYNOPSIS
+For this function to be used you need to add the #include "holberton.h" header file
+.SH DESCRIPTION
+The _printf function produces output according to the format specified. the function writes its output to the stdout,
+.SH USAGE
+For the function to be used you used the following key characters preceeded by the % sysmbol.
+.RS 3
+%c: used for printing characters
+.RS 0
+%i: used for printing integers
+.RS 0
+%d: used to print integers
+.RS 0
+%s: used to print strings
+.RS 0
+%x: prints hexdecimal numbers
+.RS 0
+%%: prints a single percent symbol.
+.SH RETURN VALUES
+The printf function returns an integer representing the number of sysmbols printed out except the \\0 for strings
+.SH SEE ALSO
+.I printf(3)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Mubanga Mukoba
