@@ -25,7 +25,7 @@ char _strrev(char *str)
 		str[i] = str[len - i - 1];
 		str[len - i - 1] = c;
 	}
-	return (str);
+	return (*str);
 }
 /**
  * _itoa - converts an integer to a string
@@ -70,7 +70,7 @@ int _printf(const char *format, ...)
 	char buff[100], tmp[20];
 	char *str;
 
-	Va_start(args, format);
+	va_start(args, format);
 	while (format && format[i])
 	{
 		if (format[i] == '%')
@@ -79,18 +79,18 @@ int _printf(const char *format, ...)
 			{
 				case 'i':
 					_itoa(va_arg(args, int), tmp, 10);
-					strcpy(&buff, tmp);
+					strcpy(&buff[j], tmp);
 					j += strlen(tmp);
 					break;
 				case 'd':
 					_itoa(va_arg(args, int), tmp, 10);
-					strcpy(&buff, tmp);
+					strcpy(&buff[j], tmp);
 					j += strlen(tmp);
 					break;
 				case 's':
 					str = va_arg(args, char *);
-					strcpy(&buff[j], tmp);
-					j += strlen(tmp);
+					strcpy(&buff[j], str);
+					j += strlen(str);
 					break;
 				case 'c':
 					buff[j] = (char)va_arg(args, int);
@@ -103,17 +103,17 @@ int _printf(const char *format, ...)
 					break;
 				case 'x':
 					_itoa(va_arg(args, unsigned int), tmp, 16);
-					strcpy(&buff[j], tmp, 16);
+					strcpy(&buff[j], tmp);
 					j += strlen(tmp);
 					break;
 				case 'u':
 					_itoa(va_arg(args, unsigned int), tmp, 10);
-					strcpy(buff[j], tmp);
+					strcpy(&buff[j], tmp);
 					j += strlen(tmp);
 					break;
 				case '%':
 					buff[j] = '%';
-					write(1, buff, 1);
+					fwrite(buff, j, 1, stdout);
 					break;
 
 			}
