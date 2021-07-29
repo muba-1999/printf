@@ -18,7 +18,7 @@ int parser(const char *format, conver_t f_list[], va_list args)
 		{
 			for (j = 0; f_list[j].symbol != NULL; j++)
 			{
-				if (format[i + 1] == f_list.symbol[0])
+				if (format[i + 1] == f_list[j].symbol[0])
 				{
 					r_val = f_list[j].func(args);
 					if (r_val == -1)

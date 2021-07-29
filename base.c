@@ -13,7 +13,7 @@ int print_binary(va_list list)
 	unsigned int num;
 	int i, len;
 	char *str;
-	char rev_str;
+	char *rev_str;
 
 	num = va_arg(list, unsigned int);
 	if (num == 0)
@@ -25,7 +25,7 @@ int print_binary(va_list list)
 		return (-1);
 	}
 	len = base_len(num, 2);
-	str = malloc(sizeof(char) * len + 1);
+	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 	{
 		return (-1);
@@ -59,14 +59,14 @@ int print_binary(va_list list)
  * @list: arguments
  * Return: Number of symbols printed
  */
-int print_octal(va_list, list)
+int print_octal(va_list list)
 {
 	unsigned int num;
 	int len;
 	char *octal_rep;
 	char *rev_str;
 
-	mun = va_arg(list, unsigned int);
+	num = va_arg(list, unsigned int);
 	if (num == 0)
 	{
 		return (_write_char('0'));
@@ -81,14 +81,14 @@ int print_octal(va_list, list)
 	{
 		return (-1);
 	}
-	for (len = 0; num > 0; lent++)
+	for (len = 0; num > 0; len++)
 	{
 		octal_rep[len] = (num % 8) + 48;
 		num = num / 8;
 	}
 	octal_rep = '\0';
 	rev_str = strrev(octal_rep);
-	if (str_rev == NULL)
+	if (rev_str == NULL)
 	{
 		return (-1);
 	}
@@ -120,7 +120,7 @@ int print_hex(va_list list)
 		return (-1);
 	}
 	len = base_len(num, 16);
-	hex_rep = malloc(sizeof(char) * len + 1);
+	hex_rep = malloc(sizeof(char) * (len + 1));
 	if (hex_rep == NULL)
 	{
 		return (-1);
@@ -131,11 +131,11 @@ int print_hex(va_list list)
 		if (rem_num > 9)
 		{
 			rem_num = hex_check(rem_num, 'x');
-			hex_rep{len} = rem_num;
+			hex_rep[len] = rem_num;
 		}
 		else
 		{
-			hex_rep[len] = rem + 48;
+			hex_rep[len] = rem_num + 48;
 		}
 		num = num / 16;
 	}
@@ -173,12 +173,12 @@ int print_heX(va_list list)
 		return (-1);
 	}
 	len = base_len(num, 16);
-	hex_rep = malloc(sizeof(char), lent + 1);
+	hex_rep = malloc(sizeof(char) * (len + 1));
 	if (hex_rep == NULL)
 	{
 		return (-1);
 	}
-	for (len = 0; num > 0 lent++)
+	for (len = 0; num > 0; len++)
 	{
 		rem_num = num % 16;
 		if (rem_num > 9)
@@ -188,7 +188,7 @@ int print_heX(va_list list)
 		}
 		else
 		{
-			hex_rep = rem_num + 48;
+			hex_rep[len] = rem_num + 48;
 		}
 		num = num / 16;
 	}
@@ -216,11 +216,11 @@ int hex_check(int num, char x)
 	 num = num - 10;
 	 if (x == 'x')
 	 {
-		 return (hex(num));
+		 return (hex[num]);
 	 }
 	 else
 	 {
-		 return (Hex(num));
+		 return (Hex[num]);
 	 }
 	 return (0);
 }

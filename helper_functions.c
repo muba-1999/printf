@@ -21,7 +21,7 @@ char *strrev(char *s)
 	{
 		return (NULL);
 	}
-	_memcpy(dest, s, len);
+	_memcpy(str, s, len);
 	for (i = 0; i < len; i++, len--)
 	{
 		tmp = str[len - 1];
@@ -50,7 +50,7 @@ void write_base(char *str)
  * @base: base to be calculated by
  * Return: The length of a number
  */
-unsigned int(unsigned int num, int base)
+unsigned int base_len(unsigned int num, int base)
 {
 	unsigned int i;
 

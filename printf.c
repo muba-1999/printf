@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{"d", print_integer},
 		{"s", print_string},
 		{"b", print_binary},
-		{"u", unsigned_integer},
+		{"u", unsigned_int},
 		{"o", print_octal},
 		{"x", print_hex},
 		{"X", print_heX},
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		return (-1);
 	}
 	va_start(args, format);
-	print_chars = parser(format, args);
+	print_chars = parser(format, f_list, args);
 	va_end(args);
 	return (print_chars);
 }

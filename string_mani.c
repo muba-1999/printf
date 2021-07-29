@@ -1,4 +1,4 @@
-#include "holberton.c"
+#include "holberton.h"
 
 /**
  * print_reversed - calls a function to reverse andprint a string
@@ -23,7 +23,7 @@ int print_reversed(va_list arg)
 	}
 	for (len = 0; ptr[len] != '\0'; len++)
 	{
-		_erite_char(ptr[len]);
+		_write_char(ptr[len]);
 	}
 	free(ptr);
 	return (len);

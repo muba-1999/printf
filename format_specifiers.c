@@ -5,7 +5,7 @@
  * @list: arguments
  * Return: characters printed
  */
-int print_char(va_list)
+int print_char(va_list list)
 {
 	_write_char(va_arg(list, int));
 	return (1);
@@ -15,7 +15,7 @@ int print_char(va_list)
  * @list: arguments
  * Return: characters printed)
  */
-int print_strin(va_list list)
+int print_string(va_list list)
 {
 	int i;
 	char *str;
@@ -23,7 +23,7 @@ int print_strin(va_list list)
 	str = va_arg(list, char *);
 	if (str == NULL)
 	{
-		dtr = "(null)";
+		str = "(null)";
 	}
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -36,7 +36,7 @@ int print_strin(va_list list)
  * @list: list of arguments
  * Return: number of characters printed
  */
-int print_percent(_attribute_((unused))va_list list)
+int print_percent(__attribute__((unused))va_list list)
 {
 	_write_char('%');
 	return (1);
@@ -58,7 +58,7 @@ int print_integer(va_list list)
  * @list: list of arguments
  * Return: number of characters printed
  */
-int unsigned_integer(va_list)
+int unsigned_int(va_list list)
 {
 	unsigned int num;
 
@@ -71,4 +71,5 @@ int unsigned_integer(va_list)
 	{
 		return (-1);
 	}
+	return (print_unsigned_number(num));
 }
